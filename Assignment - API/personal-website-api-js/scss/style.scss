@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
+$main: #F27059;
+$second: #E3D5D1;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #E3D5D1;
+  overflow: hidden;
+}
+
+.loader {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  overflow: hidden;
+  &:before {
+    position: absolute;
+    top: 50%;
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 3px solid;
+    border-color: transparent transparent $main transparent;
+    border-radius: 100%;
+    animation: 1s spin ease infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  > * {
+    margin: 5px;
+  }
+  font-size: 40px;
+  color: $main;
+}
+
+.name {
+  display: flex;
+}
+
+.left,
+.right {
+  z-index: 10;
+  position: relative;
+  width: 30px;
+  height: 60px;
+  overflow: hidden;
+  color: #F27059;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  transition: width 0.4s 0.1s;
+}
+
+.right:hover,
+.left:hover {
+  transition: width 0.4s 0.1s;
+}
+
+.left:hover {
+  width: 140px;
+}
+
+.right:hover {
+  width: 110px;
+}
+
+span {
+  position: absolute;
+}
+
+#name {
+  left: 30px;
+}
+
+.intro {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: $main;
+  width: 40%;
+  right: -1000px;
+  margin: 0;
+  height: 100vh;
+  color: $second;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  > * {
+    margin: 10px;
+  }
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 63%;
+  // height: 100%;
+  font-size: 24px;
+  transform: translateX(20px);
+  font-weight: 200;
+  letter-spacing: 1px;
+  a {
+    position: relative;
+    color: #FBD1A2;
+    text-decoration: none;
+  }
+  > * {
+    margin: 10px 0;
+  }
+}
+
+.about-me {
+  text-align: center;
+  line-height: 45px;
+}
+
+#social {
+  font-size: 29px;
+  > * {
+    margin: 5px
+  }
+}
+
+#work {
+  font-size: 20px;
+  margin: 40px 0;
+  > * {
+    margin: 5px
+  }
+}
+
+.out {
+  transition: 1s all ease;
+  transform: translateX(450px);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  animation: 0.5s bounce ease infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 700px) {
+
+  .loader {
+    display: none;
+  }
+
+  .container {
+    width: auto;
+  }
+
+  .intro {
+    width: 100%;
+  }
+
+  .wrapper > * {
+    margin: 0;
+  }
+
+  .close {
+    width: 90%;
+  }
+}
+
+  .text {
+    width: 100%;
+   display: block;
+    text-align: center;
+    z-index: -1;
+    margin: 0;
+    transform: translateX(0);
+    font-weight: 400;
+    font-size: 20px;
+  }
